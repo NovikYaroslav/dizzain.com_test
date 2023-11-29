@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Тестовое задание
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 👋
 
-## Available Scripts
+Задание состоит из двух частей:
 
-In the project directory, you can run:
+# Блок с отзывами
 
-### `npm start`
+https://www.figma.com/file/rO3SaJO2HwBFhK7c5zpFYl/955_hinkalnyagrodno_test?type=design&node-id=0%3A1&mode=design&t=39CCbXILMUP80UL8-1
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[test.json](https://prod-files-secure.s3.us-west-2.amazonaws.com/853cfcdc-17b3-40c9-8dd0-05ecd897a462/379ab04e-bde5-4dc5-9a1b-107f51da19e5/test.json)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Часть отзывов:
 
-### `npm test`
+- Отзывы находятся в файле test.json
+- Создать store из test.json используя createContext
+- Выводить нужно 6 случайных отзывов
+- Выводить отзывы только те, у которых reviewIsShowAtHomePage = true
+- Количество лайков - reviewLikesCount
+- Оценка - reviewRate
+- При нажатии на like, значение должно увеличиваться на 1 и сохраняться в Context + при сохранении store, обновлять так же файл test.json
+- Респонзив в макете выше отрисован
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+При нажатии на кнопку “Оставить отзыв”, должно появляться всплывающее окно:
 
-### `npm run build`
+https://www.figma.com/file/rO3SaJO2HwBFhK7c5zpFYl/955_hinkalnyagrodno_test?type=design&node-id=1%3A2&mode=design&t=fhZD0o6vSh3jQK1D-1
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+В окне у нас имеется несколько шагов:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1 - выбираем адрес
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2 - указываем оценку
 
-### `npm run eject`
+3 - если оценка выше 3, то мы выводим 3 сервиса для отзыва
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4 - если оценка ниже либо равно 3, мы выводим форму для заполнения (Имя, email, телефон дата посещения, отзыв, и возможность загрузить файл)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5 - При отправке добавляем отзыв в store и в test.json
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+6 - Респонзив на свое усмотрение
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Страница для управления отзывами
 
-## Learn More
+https://www.figma.com/file/rO3SaJO2HwBFhK7c5zpFYl/955_hinkalnyagrodno_test?type=design&node-id=4%3A10&mode=design&t=fhZD0o6vSh3jQK1D-1
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Создать страницу, в которой будет форма для добавления в стор отзывов, под ней вывести список отзывов
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Данные в этом списке можно изменить или удалить
+- При заполнении формы, этот отзыв должен появляться на главной
+- Респонзив на свое усмотрение
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Как должна выглядеть форма при редактировании отзыва - не важно, на свое усмотрение.

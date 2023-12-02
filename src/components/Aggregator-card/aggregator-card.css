@@ -1,12 +1,18 @@
 .aggregator-card {
   display: flex;
   justify-content: space-between;
-  /* width: 288px; */
-  width: calc(288px - 30px);
-  padding: 7px 15px 7px 15px;
+  width: calc(288px - 32px);
+  padding: 7px 16px 7px 16px;
   height: calc(56px - 14px);
   background-color: #ffffff;
   border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.aggregator-card:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 @import url('./styles/aggregator-card__left-side.css');

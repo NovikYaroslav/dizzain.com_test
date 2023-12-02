@@ -1,0 +1,16 @@
+.popup-form__rating-checkbox {
+  width: 54px;
+  height: 54px;
+  background-image: url('../../../img/big-star-inactive.png');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.popup-form__rating-checkbox:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.popup-form__rating-checkbox input[type='checkbox'] {
+  display: none;
+}

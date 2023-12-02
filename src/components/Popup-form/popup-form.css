@@ -1,0 +1,26 @@
+.popup-form {
+  margin-top: 11px;
+  margin-bottom: 64px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 60px 52px 60px;
+  box-sizing: border-box;
+  width: 615px;
+  min-height: 637px;
+  background-color: #f3f3f1;
+  border-radius: 8px;
+}
+
+@import url('./styles/popup-form__close.css');
+@import url('./styles/popup-form__header-location.css');
+@import url('./styles/popup-form__locations-container.css');
+@import url('./styles/popup-form__location-checkbox.css');
+@import url('./styles/popup-form__location-checkbox_checked.css');
+@import url('./styles/popup-form__location-custom-checkbox.css');
+@import url('./styles/popup-form__location-custom-checkbox_checked.css');
+
+@import url('./styles/popup-form__header-rating.css');
+@import url('./styles/popup-form__rating-container.css');
+@import url('./styles/popup-form__rating-checkbox.css');
+@import url('./styles/popup-form__rating-checkbox_checked.css');

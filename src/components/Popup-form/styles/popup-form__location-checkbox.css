@@ -1,0 +1,24 @@
+.popup-form__location-checkbox {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-radius: 12px;
+  background: #fff;
+  height: 64px;
+  flex-shrink: 0;
+  color: #341d08;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  color: #bab6b4;
+}
+
+.popup-form__location-checkbox:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.popup-form__location-checkbox input[type='checkbox'] {
+  display: none;
+}

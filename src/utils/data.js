@@ -3,11 +3,34 @@ import yandexLogo from '../img/Yandex.png';
 import googleLogo from '../img/Google.png';
 
 const aggregatorsData = [
-  { name: 'carte', totalRate: 5.0, reviewsAmount: 152, logo: { yandexLogo } },
-  { name: 'yandex', totalRate: 4.9, reviewsAmount: 439, logo: { carteLogo } },
-  { name: 'google', totalRate: 4.5, reviewsAmount: 700, logo: { googleLogo } },
+  {
+    name: 'carte',
+    totalRate: 5.0,
+    reviewsAmount: 152,
+    logo: { yandexLogo },
+    ref: 'https://carte.by',
+  },
+  {
+    name: 'yandex',
+    totalRate: 4.9,
+    reviewsAmount: 439,
+    logo: { carteLogo },
+    ref: 'https://ya.ru',
+  },
+  {
+    name: 'google',
+    totalRate: 4.5,
+    reviewsAmount: 700,
+    logo: { googleLogo },
+    ref: 'https://google.ru',
+  },
 ];
 
-const draftStars = [5, 4, 3, 2, 1];
+const restaurantAddresses = [
+  'Хинкальня на ул. Урицкого, 5',
+  'Хинкальня на ул. Я.Купалы, 87 (ТРК Тринити)',
+];
 
-export { aggregatorsData, draftStars };
+const starsCount = [1, 2, 3, 4, 5];
+
+export { aggregatorsData, starsCount, restaurantAddresses };

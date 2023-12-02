@@ -7,6 +7,7 @@ const ReviewsContext = createContext();
 const ReviewsProvider = ({ children }) => {
   const [reviews, setReviews] = useState([]);
   const [reviewsOnMain, setReviewsOnMain] = useState([]);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   // Функция для добавления лайка.
   const updateLikes = (id) => {
@@ -38,6 +39,11 @@ const ReviewsProvider = ({ children }) => {
     setReviews(updatedReviews);
   };
 
+  // Функция открытия popup
+  const tooglePopupVisability = () => {
+    setIsPopupOpen(!isPopupOpen);
+  };
+
   useEffect(() => {
     setReviews(initialReviews.reviews);
     setReviewsOnMain(shuffleArray(initialReviews.reviews));
@@ -45,7 +51,16 @@ const ReviewsProvider = ({ children }) => {
 
   return (
     <ReviewsContext.Provider
-      value={{ reviews, reviewsOnMain, updateLikes, addReview, removeReview, editReview }}>
+      value={{
+        reviews,
+        reviewsOnMain,
+        updateLikes,
+        addReview,
+        removeReview,
+        editReview,
+        isPopupOpen,
+        tooglePopupVisability,
+      }}>
       {children}
     </ReviewsContext.Provider>
   );

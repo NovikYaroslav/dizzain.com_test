@@ -1,0 +1,7 @@
+.high-rate-block {
+  display: flex;
+  flex-direction: column;
+}
+
+@import url('./styles/high-rate-block__aggregators-container.css');
+@import url('./styles/high-rate-block__message.css');

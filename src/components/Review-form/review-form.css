@@ -1,0 +1,10 @@
+.review-form {
+  display: flex;
+  flex-direction: column;
+}
+
+@import url('./styles/review-form__header.css');
+@import url('./styles/review-form__data-container.css');
+@import url('./styles/review-form__input.css');
+@import url('./styles/review-form__input_file.css');
+@import url('./styles/review-form__submit.css');

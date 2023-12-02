@@ -1,0 +1,21 @@
+.review {
+  margin: 0;
+  padding: 0;
+  max-width: calc(380px - 82px);
+  padding: 0 41px 36px 41px;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  background-color: #ffffff;
+  border-radius: 12px;
+  align-self: flex-start;
+}
+
+@import url('./styles/review__label.css');
+@import url('./styles/review__raiting.css');
+@import url('./styles/review__author.css');
+@import url('./styles/review__text.css');
+@import url('./styles/review__likes.css');
+@import url('./styles/review__likes-amount.css');
+@import url('./styles/review__likes-amount_active.css');
+@import url('./styles/review__like-label.css');

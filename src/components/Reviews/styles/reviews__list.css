@@ -1,0 +1,6 @@
+.reviews__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-self: space-between;
+}

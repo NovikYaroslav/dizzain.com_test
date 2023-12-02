@@ -1,0 +1,5 @@
+.review__raiting {
+  margin-top: 17px;
+  display: flex;
+  gap: 9px;
+}

@@ -1,0 +1,8 @@
+.reviews__bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  max-width: 100%;
+  margin-top: 30px;
+  margin-bottom: 45px;
+}

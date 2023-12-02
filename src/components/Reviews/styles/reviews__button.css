@@ -1,0 +1,15 @@
+.reviews__button {
+  margin: 0;
+  padding: 0;
+  width: 288px;
+  height: 56px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: center;
+  background-color: #a7221f;
+  border: none;
+  border-radius: 12px;
+}

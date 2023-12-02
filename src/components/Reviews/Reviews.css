@@ -1,0 +1,12 @@
+.reviews {
+  display: flex;
+  flex-direction: column;
+  margin: 100px 0 100px 0;
+  padding: 0;
+  max-width: 1200px;
+}
+
+@import url('./styles/reviews__title.css');
+@import url('./styles/reviews__bar.css');
+@import url('./styles/reviews__button.css');
+@import url('./styles/reviews__list.css');

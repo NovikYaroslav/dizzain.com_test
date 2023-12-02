@@ -1,0 +1,14 @@
+.review__likes {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  max-width: 105px;
+  gap: 8px;
+  border: none;
+  background-color: transparent;
+}
+
+.review__likes:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}

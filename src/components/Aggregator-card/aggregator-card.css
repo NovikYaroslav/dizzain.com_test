@@ -1,0 +1,17 @@
+.aggregator-card {
+  display: flex;
+  justify-content: space-between;
+  /* width: 288px; */
+  width: calc(288px - 30px);
+  padding: 7px 15px 7px 15px;
+  height: calc(56px - 14px);
+  background-color: #ffffff;
+  border-radius: 12px;
+}
+
+@import url('./styles/aggregator-card__left-side.css');
+@import url('./styles/aggregator-card__right-side.css');
+@import url('./styles/aggregator__logo.css');
+@import url('./styles/aggregator__stars-raiting.css');
+@import url('./styles/aggregator__raiting.css');
+@import url('./styles/aggregator__reviews-amount.css');

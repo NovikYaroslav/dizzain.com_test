@@ -1,0 +1,21 @@
+.review-submited-block__back-button {
+  margin: 0;
+  padding: 0;
+  margin-top: 23px;
+  width: 236px;
+  height: 38px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: center;
+  background-color: #a7221f;
+  border: none;
+  border-radius: 12px;
+}
+
+.review-submited-block__back-button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}

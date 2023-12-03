@@ -1,0 +1,157 @@
+import React, { useState } from 'react';
+import { useReviews } from '../../context/reviewsContext';
+import { formatText } from '../../utils/support-functions';
+import './reviews-table.css';
+
+export default function ReviewsTable() {
+  const { reviews, removeReview, editReview } = useReviews();
+  const [editMode, setEditMode] = useState(null); // Индекс редактируемого отзыва
+  const [editedValues, setEditedValues] = useState({});
+
+  const handleEditClick = (id, review) => {
+    setEditMode(id);
+    setEditedValues({
+      editedId: review.id,
+      editedTitle: review.title,
+      editedEmail: review.email || 'Отсутствует',
+      editedPhone: review.phone || 'Отсутствует',
+      editedDate: review.date || 'Отсутствует',
+      editedReviewRate: review.review.reviewRate,
+      editedContent: review.content,
+    });
+  };
+
+  const handleConfirmEditClick = () => {
+    setEditMode(null);
+    setEditedValues({});
+    editReview(editedValues);
+  };
+
+  return (
+    <table className='reviews-table'>
+      <thead>
+        <tr>
+          <th className='reviews-table__heading'>Имя</th>
+          <th className='reviews-table__heading'>Email</th>
+          <th className='reviews-table__heading'>Телефон</th>
+          <th className='reviews-table__heading'>Дата</th>
+          <th className='reviews-table__heading'>Рейтинг</th>
+          <th className='reviews-table__heading reviews-table__heading_review'>Отзыв</th>
+          <th className='reviews-table__heading'></th>
+          <th className='reviews-table__heading'></th>
+        </tr>
+      </thead>
+      <tbody>
+        {reviews.map((review) => (
+          <tr key={review.id}>
+            <td className='reviews-table__body'>
+              {editMode === review.id ? (
+                <textarea
+                  className='reviews-table__input'
+                  type='textarea'
+                  value={editedValues.editedTitle}
+                  onChange={(e) =>
+                    setEditedValues({ ...editedValues, editedTitle: e.target.value })
+                  }
+                />
+              ) : (
+                review.title
+              )}
+            </td>
+            <td className='reviews-table__body'>
+              {editMode === review.id ? (
+                <textarea
+                  className='reviews-table__input'
+                  type='textarea'
+                  value={editedValues.editedEmail}
+                  onChange={(e) =>
+                    setEditedValues({ ...editedValues, editedEmail: e.target.value })
+                  }
+                />
+              ) : (
+                review.email || 'Отсутствует'
+              )}
+            </td>
+            <td className='reviews-table__body'>
+              {editMode === review.id ? (
+                <textarea
+                  className='reviews-table__input'
+                  type='textarea'
+                  value={editedValues.editedPhone}
+                  onChange={(e) =>
+                    setEditedValues({ ...editedValues, editedPhone: e.target.value })
+                  }
+                />
+              ) : (
+                review.phone || 'Отсутствует'
+              )}
+            </td>
+            <td className='reviews-table__body'>
+              {editMode === review.id ? (
+                <textarea
+                  className='reviews-table__input'
+                  type='textarea'
+                  value={editedValues.editedDate}
+                  onChange={(e) => setEditedValues({ ...editedValues, editedDate: e.target.value })}
+                />
+              ) : (
+                review.date || 'Отсутствует'
+              )}
+            </td>
+            <td className='reviews-table__body'>
+              {editMode === review.id ? (
+                <input
+                  className='reviews-table__input'
+                  type='number'
+                  max={5}
+                  min={1}
+                  value={editedValues.editedReviewRate}
+                  onChange={(e) =>
+                    setEditedValues({ ...editedValues, editedReviewRate: e.target.value })
+                  }
+                />
+              ) : (
+                review.review.reviewRate
+              )}
+            </td>
+            <td className='reviews-table__body'>
+              {editMode === review.id ? (
+                <textarea
+                  className='reviews-table__input reviews-table__input_review '
+                  type='textarea'
+                  value={editedValues.editedContent}
+                  onChange={(e) =>
+                    setEditedValues({ ...editedValues, editedContent: e.target.value })
+                  }
+                />
+              ) : (
+                formatText(review.content)
+              )}
+            </td>
+            <td className='reviews-table__body'>
+              {editMode === review.id ? (
+                <button className='reviews-table__buttons' onClick={handleConfirmEditClick}>
+                  Подтвердить
+                </button>
+              ) : (
+                <button
+                  className='reviews-table__buttons'
+                  onClick={() => handleEditClick(review.id, review)}>
+                  Редактировать
+                </button>
+              )}
+            </td>
+            <td className='reviews-table__body'>
+              <button
+                className='reviews-table__buttons'
+                type='button'
+                onClick={() => removeReview(review.id)}>
+                Удалить
+              </button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}

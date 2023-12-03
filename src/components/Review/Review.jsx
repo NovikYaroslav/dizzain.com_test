@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { starsCount } from '../../utils/data';
+import { formatText } from '../../utils/support-functions';
 import star from '../../img/Star-active.png';
 import inactiveStar from '../../img/Star-inactive.png';
 import activeLike from '../../img/like-active.png';
@@ -9,7 +10,7 @@ import './review.css';
 
 export default function Review({ author, text, rating, likes, id }) {
   const { updateLikes } = useReviews();
-  const stringWithoutPTags = text.replace(/<p>|<\/p>|<br \/>|&#\d+;/g, '');
+  const stringWithoutPTags = formatText(text);
   const [likeCount, setLikeCount] = useState(likes);
   const [liked, setLiked] = useState(false);
 

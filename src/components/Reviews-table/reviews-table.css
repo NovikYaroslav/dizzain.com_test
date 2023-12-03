@@ -1,0 +1,15 @@
+.reviews-table {
+  margin-bottom: 50px;
+  border: 1px solid #000;
+  background: #d9d9d9;
+  border-collapse: collapse;
+  max-width: 1300px;
+  text-align: center;
+}
+
+@import url('./styles/reviews-table__heading.css');
+@import url('./styles/reviews-table__heading_review.css');
+@import url('./styles/reviews-table__input_review.css');
+@import url('./styles/reviews-table__body.css');
+@import url('./styles/reviews-table__input.css');
+@import url('./styles/reviews-table__buttons.css');

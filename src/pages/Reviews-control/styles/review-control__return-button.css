@@ -1,0 +1,13 @@
+.review-control__return-button {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  top: 10px;
+  right: 30px;
+  background-color: transparent;
+  border: none;
+  background-image: url('../../../img/back.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}

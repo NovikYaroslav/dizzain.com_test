@@ -1,0 +1,11 @@
+.review-submited-block {
+  margin-top: 66px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@import url('./styles/review-submited-block__message.css');
+@import url('./styles/review-submited-block__image.css');
+@import url('./styles/review-submited-block__back-button.css');
+@import url('./styles/review-submited-block__menu-link.css');

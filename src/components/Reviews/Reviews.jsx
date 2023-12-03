@@ -1,9 +1,15 @@
 import AggregatorCard from '../../components/Aggregator-card/Aggregator-card';
 import Review from '../../components/Review/Review';
 import { aggregatorsData } from '../../utils/data';
-import { AMOUNT_ON_PAGE } from '../../utils/const';
-import './Reviews.css';
+import {
+  AMOUNT_ON_PAGE,
+  FIRST_SLICE,
+  SECOND_SLICE,
+  THIRD_SLICE,
+  AMOUNT_IN_COLUMN,
+} from '../../utils/const';
 import { useReviews } from '../../context/reviewsContext';
+import './Reviews.css';
 
 export default function Reviews() {
   const { reviewsOnMain, tooglePopupVisability } = useReviews();
@@ -29,15 +35,19 @@ export default function Reviews() {
       </div>
 
       <div className='reviews__list'>
-        {randomReviews.map((el) => (
-          <Review
-            author={el.title}
-            text={el.content}
-            rating={el.review.reviewRate}
-            likes={el.review.reviewLikesCount}
-            id={el.id}
-            key={el.id}
-          />
+        {[FIRST_SLICE, SECOND_SLICE, THIRD_SLICE].map((startIndex) => (
+          <div className='reviews__column' key={startIndex}>
+            {randomReviews.slice(startIndex, startIndex + AMOUNT_IN_COLUMN).map((el) => (
+              <Review
+                author={el.title}
+                text={el.content}
+                rating={el.review.reviewRate}
+                likes={el.review.reviewLikesCount}
+                id={el.id}
+                key={el.id}
+              />
+            ))}
+          </div>
         ))}
       </div>
     </section>

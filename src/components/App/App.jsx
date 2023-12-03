@@ -1,4 +1,3 @@
-import React from 'react';
 import { ReviewsProvider } from '../../context/reviewsContext';
 import { Routes, Route } from 'react-router-dom';
 import Main from '../../pages/Main/Main';

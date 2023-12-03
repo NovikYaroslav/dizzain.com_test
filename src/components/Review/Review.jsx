@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { starsCount } from '../../utils/data';
-import { formatText } from '../../utils/support-functions';
 import star from '../../img/Star-active.png';
 import inactiveStar from '../../img/Star-inactive.png';
 import activeLike from '../../img/like-active.png';
 import inactiveLike from '../../img/like-inactive.png';
 import { useReviews } from '../../context/reviewsContext';
+import { starsCount } from '../../utils/data';
+import { formatText } from '../../utils/support-functions';
 import './review.css';
 
 export default function Review({ author, text, rating, likes, id }) {

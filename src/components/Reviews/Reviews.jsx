@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import AggregatorCard from '../../components/Aggregator-card/Aggregator-card';
 import Review from '../../components/Review/Review';
 import { aggregatorsData } from '../../utils/data';
@@ -10,13 +11,11 @@ import {
 } from '../../utils/const';
 import { useReviews } from '../../context/reviewsContext';
 import './Reviews.css';
-import { useEffect } from 'react';
 
 export default function Reviews() {
   const { reviewsOnMain, tooglePopupVisability, updatedReviewsOnMain } = useReviews();
   const randomReviews = reviewsOnMain.slice(0, AMOUNT_ON_PAGE);
 
-  // Из за этого эффекта 2 раза получаем отзывы. 1- при старте, второй при ренедере компонента.
   useEffect(() => {
     updatedReviewsOnMain();
   }, []);

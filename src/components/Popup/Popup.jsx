@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
-import { useReviews } from '../../context/reviewsContext';
 import PopupForm from '../Popup-form/Popup-form';
+import { useReviews } from '../../context/reviewsContext';
+import { ESC_KEY_CODE } from '../../utils/const';
 import './popup.css';
 
 export default function Popup() {
@@ -8,7 +9,7 @@ export default function Popup() {
 
   useEffect(() => {
     const handleKeyPress = (event) => {
-      if (event.keyCode === 27 && isPopupOpen) {
+      if (event.keyCode === ESC_KEY_CODE && isPopupOpen) {
         tooglePopupVisability();
       }
     };

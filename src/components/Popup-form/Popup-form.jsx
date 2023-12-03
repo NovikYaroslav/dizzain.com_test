@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
+import HighRateBlock from '../High-rate-block/High-rate-block';
+import ReviewForm from '../Review-form/Review-form';
+import ReviewSubmitedBlock from '../Review-submited-block/Review-submited-block';
 import { useReviews } from '../../context/reviewsContext';
 import { restaurantAddresses } from '../../utils/data';
 import { starsCount } from '../../utils/data';
 import '../../components/Popup-form/popup-form.css';
-import HighRateBlock from '../High-rate-block/High-rate-block';
-import ReviewForm from '../Review-form/Review-form';
-import ReviewSubmitedBlock from '../Review-submited-block/Review-submited-block';
 
 export default function PopupForm() {
   const { tooglePopupVisability, isPopupOpen } = useReviews();

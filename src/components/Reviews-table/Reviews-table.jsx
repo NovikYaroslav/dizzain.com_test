@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useReviews } from '../../context/reviewsContext';
 import { formatText } from '../../utils/support-functions';
+import { starsCount } from '../../utils/data';
+import star from '../../img/big-star-active.png';
+import inactiveStar from '../../img/big-star-inactive.png';
 import './reviews-table.css';
 
 export default function ReviewsTable() {
@@ -86,11 +89,11 @@ export default function ReviewsTable() {
                 review.phone || 'Отсутствует'
               )}
             </td>
-            <td className='reviews-table__body'>
+            <td className='reviews-table__body reviews-table__body_edit'>
               {editMode === review.id ? (
-                <textarea
+                <input
                   className='reviews-table__input'
-                  type='textarea'
+                  type='date'
                   value={editedValues.editedDate}
                   onChange={(e) => setEditedValues({ ...editedValues, editedDate: e.target.value })}
                 />
@@ -111,7 +114,14 @@ export default function ReviewsTable() {
                   }
                 />
               ) : (
-                review.review.reviewRate
+                starsCount.map((starNumber) => (
+                  <img
+                    className='review-table__stars'
+                    src={starNumber <= review.review.reviewRate ? star : inactiveStar}
+                    alt='звездочка рейтинга'
+                    key={starNumber}
+                  />
+                ))
               )}
             </td>
             <td className='reviews-table__body'>

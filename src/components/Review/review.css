@@ -1,14 +1,13 @@
 .review {
   margin: 0;
   padding: 0;
-  max-width: calc(380px - 82px);
+  max-width: 100%;
   padding: 0 41px 36px 41px;
   display: flex;
   flex-direction: column;
   align-content: flex-start;
   background-color: #ffffff;
   border-radius: 12px;
-  align-self: flex-start;
 }
 
 @import url('./styles/review__label.css');

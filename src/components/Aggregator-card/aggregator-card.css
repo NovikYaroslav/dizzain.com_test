@@ -15,6 +15,12 @@
   opacity: 0.8;
 }
 
+@media (max-width: 668px) {
+  .aggregator-card {
+    max-width: 335px;
+  }
+}
+
 @import url('./styles/aggregator-card__left-side.css');
 @import url('./styles/aggregator-card__right-side.css');
 @import url('./styles/aggregator__logo.css');

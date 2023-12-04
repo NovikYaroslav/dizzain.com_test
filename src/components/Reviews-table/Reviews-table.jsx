@@ -8,7 +8,7 @@ import './reviews-table.css';
 
 export default function ReviewsTable() {
   const { reviews, removeReview, editReview } = useReviews();
-  const [editMode, setEditMode] = useState(null); // Индекс редактируемого отзыва
+  const [editMode, setEditMode] = useState(null);
   const [editedValues, setEditedValues] = useState({});
 
   const handleEditClick = (id, review) => {
@@ -94,7 +94,6 @@ export default function ReviewsTable() {
                 <input
                   className='reviews-table__input'
                   type='date'
-                  value={editedValues.editedDate}
                   onChange={(e) => setEditedValues({ ...editedValues, editedDate: e.target.value })}
                 />
               ) : (

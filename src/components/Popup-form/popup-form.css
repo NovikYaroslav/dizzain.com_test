@@ -1,6 +1,7 @@
 .popup-form {
   margin-top: 11px;
   margin-bottom: 64px;
+  margin: 11px 30px 64px 30px;
   position: relative;
   display: flex;
   flex-direction: column;

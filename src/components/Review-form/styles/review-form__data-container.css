@@ -7,3 +7,9 @@
   column-gap: 12px;
   row-gap: 20px;
 }
+
+@media (max-width: 700px) {
+  .review-form__data-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

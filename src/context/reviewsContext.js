@@ -9,6 +9,42 @@ const ReviewsProvider = ({ children }) => {
   const [reviewsOnMain, setReviewsOnMain] = useState([]);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
+  // единственный приличный вариант который я вижу, для сохранения это localStorage.
+  // fr не подходит, т.к. я не в node.js
+  // File System Access API требует взаимодействия с клиентом и не предназначен для подкапотной перезаписи.
+  // Получится должно было что-то такое:
+
+  // useEffect(() => {
+  //   saveJson();
+  // }, [reviews]);
+
+  // async function saveJson() {
+  //   const reviewsString = JSON.stringify({ reviews });
+  //   let blob = new Blob([reviewsString], { type: 'text/plain' });
+  //   let fileName = `test`;
+  //   let a = await window.showSaveFilePicker({
+  //     suggestedName: `${fileName}.json`,
+  //     types: [
+  //       {
+  //         description: 'test.json',
+  //         accept: {
+  //           'text/plain': ['.json'],
+  //         },
+  //       },
+  //     ],
+  //   });
+  //   let b = await a.createWritable();
+  //   let c = await b.write(blob);
+  //   let d = await b.close();
+  // }
+
+  // возможно есть способы работы с файлом через public или средствами для перезаписи файлов библиотек, но это какая-то черная магия.
+
+  useEffect(() => {
+    const reviewsString = JSON.stringify({ reviews });
+    localStorage.setItem('test.json', reviewsString);
+  }, [reviews]);
+
   const updatedReviewsOnMain = () => {
     setReviewsOnMain(shuffleArray(reviews));
   };
@@ -57,6 +93,7 @@ const ReviewsProvider = ({ children }) => {
     editedReviewRate,
     editedContent,
   }) => {
+    console.log(editedDate);
     const updatedReviews = reviews.map((review) =>
       review.id === editedId
         ? {

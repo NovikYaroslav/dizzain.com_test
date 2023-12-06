@@ -19,8 +19,14 @@ export default function Popup() {
     };
   }, [isPopupOpen, tooglePopupVisability]);
 
+  const handleOverlayClick = (e) => {
+    if (e.target === e.currentTarget) {
+      tooglePopupVisability();
+    }
+  };
+
   return (
-    <div className={`popup ${isPopupOpen ? 'popup_opened' : ''}`}>
+    <div className={`popup ${isPopupOpen ? 'popup_opened' : ''}`} onClick={handleOverlayClick}>
       <PopupForm />
     </div>
   );

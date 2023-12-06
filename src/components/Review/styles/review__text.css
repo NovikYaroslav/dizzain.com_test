@@ -9,6 +9,12 @@
   color: #7e7770;
 }
 
+@media (max-width: 1040px) {
+  .review__text {
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 669px) {
   .review__text {
     max-width: 100%;

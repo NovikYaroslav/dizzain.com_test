@@ -4,15 +4,15 @@
   align-self: space-between;
 }
 
-@media (max-width: 1020px) {
+@media (max-width: 1040px) {
   .reviews__list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 668px) {
+@media (max-width: 640px) {
   .reviews__list {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
   }
 }

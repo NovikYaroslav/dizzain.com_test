@@ -14,3 +14,11 @@
 .popup-form__rating-checkbox input[type='checkbox'] {
   display: none;
 }
+
+@media (max-width: 560px) {
+  .popup-form__rating-checkbox {
+    width: 44px;
+    height: 44px;
+    background-size: contain;
+  }
+}

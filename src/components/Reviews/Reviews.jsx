@@ -41,24 +41,24 @@ export default function Reviews() {
   }, []);
 
   useEffect(() => {
-    if (windowWidth < 1040) {
+    if (windowWidth <= 1040) {
       setReviewsInColumn(3);
       setColumnsAmount(tabletSlices);
     }
-    if (windowWidth < 650) {
+    if (windowWidth <= 650) {
       setReviewsInColumn(6);
       setColumnsAmount(mobilSlices);
     }
 
-    if (windowWidth < 650) {
+    if (windowWidth <= 650) {
       setIsMobileLayout(true);
     }
 
-    if (windowWidth > 650) {
+    if (windowWidth >= 650) {
       setIsMobileLayout(false);
     }
 
-    if (windowWidth > 1040) {
+    if (windowWidth >= 1040) {
       setReviewsInColumn(2);
       setColumnsAmount(desktopSlices);
     }

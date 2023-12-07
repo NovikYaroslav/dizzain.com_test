@@ -3,3 +3,9 @@
   display: flex;
   gap: 21px;
 }
+
+@media (max-width: 560px) {
+  .popup-form__rating-container {
+    margin-bottom: 20px;
+  }
+}

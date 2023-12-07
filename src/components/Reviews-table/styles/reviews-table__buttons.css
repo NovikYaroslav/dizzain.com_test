@@ -10,3 +10,8 @@
   line-height: normal;
   text-decoration: underline;
 }
+
+.reviews-table__buttons:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}

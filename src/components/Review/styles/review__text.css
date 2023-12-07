@@ -9,8 +9,25 @@
   color: #7e7770;
 }
 
+@media (max-width: 1040px) {
+  .review__text {
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 669px) {
   .review__text {
     max-width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .review__text {
+    max-height: 96px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
   }
 }

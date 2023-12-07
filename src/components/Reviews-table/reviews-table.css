@@ -1,10 +1,10 @@
 .reviews-table {
-  margin-bottom: 50px;
   border: 1px solid #000;
   background: #d9d9d9;
   border-collapse: collapse;
-  max-width: 1300px;
+  width: 1350px;
   text-align: center;
+  transform: rotateX(180deg);
 }
 
 @import url('./styles/reviews-table__heading.css');

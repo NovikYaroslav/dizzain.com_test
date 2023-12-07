@@ -10,6 +10,26 @@
   border-radius: 12px;
 }
 
+@media (max-width: 650px) {
+  .review {
+    min-width: 50%;
+  }
+}
+
+@media (max-width: 500px) {
+  .review {
+    min-width: 50%;
+  }
+}
+
+@media (max-width: 500px) {
+  .review {
+    padding: 0 30px 36px 30px;
+    min-width: 61%;
+    max-height: 274px;
+  }
+}
+
 @import url('./styles/review__label.css');
 @import url('./styles/review__raiting.css');
 @import url('./styles/review__author.css');

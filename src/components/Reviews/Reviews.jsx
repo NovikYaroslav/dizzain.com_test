@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import AggregatorCard from '../../components/Aggregator-card/Aggregator-card';
 import Review from '../../components/Review/Review';
 import { aggregatorsData } from '../../utils/data';
@@ -14,16 +14,59 @@ import './Reviews.css';
 
 export default function Reviews() {
   const { reviewsOnMain, tooglePopupVisability, updatedReviewsOnMain } = useReviews();
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [reviewsInColumn, setReviewsInColumn] = useState(2);
   const randomReviews = reviewsOnMain.slice(0, AMOUNT_ON_PAGE);
+  const desktopSlices = [FIRST_SLICE, SECOND_SLICE, THIRD_SLICE];
+  const tabletSlices = [FIRST_SLICE, SECOND_SLICE];
+  const mobilSlices = [FIRST_SLICE];
+  const [columnsAmount, setColumnsAmount] = useState(desktopSlices);
+
+  console.log(columnsAmount);
+  console.log(reviewsInColumn);
+  console.log(windowWidth);
+
+  const [isMobileLayout, setIsMobileLayout] = useState(false);
 
   useEffect(() => {
     updatedReviewsOnMain();
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', () => setTimeout(handleResize, 3000));
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (windowWidth <= 1040) {
+      setReviewsInColumn(3);
+      setColumnsAmount(tabletSlices);
+    }
+    if (windowWidth <= 650) {
+      setReviewsInColumn(6);
+      setColumnsAmount(mobilSlices);
+    }
+
+    if (windowWidth <= 650) {
+      setIsMobileLayout(true);
+    }
+
+    if (windowWidth >= 650) {
+      setIsMobileLayout(false);
+    }
+
+    if (windowWidth >= 1040) {
+      setReviewsInColumn(2);
+      setColumnsAmount(desktopSlices);
+    }
+  }, [windowWidth]);
+
   return (
     <section className='reviews'>
       <h1 className='reviews__title'>Отзывы</h1>
-
       <div className='reviews__bar'>
         {aggregatorsData.map((el) => (
           <AggregatorCard
@@ -34,15 +77,17 @@ export default function Reviews() {
             key={el.name}
           />
         ))}
-        <button className='reviews__button' type='button' onClick={tooglePopupVisability}>
-          Оставить отзыв
-        </button>
+        {isMobileLayout ? null : (
+          <button className='reviews__button' type='button' onClick={tooglePopupVisability}>
+            Оставить отзыв
+          </button>
+        )}
       </div>
 
       <div className='reviews__list'>
-        {[FIRST_SLICE, SECOND_SLICE, THIRD_SLICE].map((startIndex) => (
+        {columnsAmount.map((startIndex) => (
           <div className='reviews__column' key={startIndex}>
-            {randomReviews.slice(startIndex, startIndex + AMOUNT_IN_COLUMN).map((el) => (
+            {randomReviews.slice(startIndex, startIndex + reviewsInColumn).map((el) => (
               <Review
                 author={el.title}
                 text={el.content}
@@ -55,6 +100,11 @@ export default function Reviews() {
           </div>
         ))}
       </div>
+      {isMobileLayout ? (
+        <button className='reviews__button' type='button' onClick={tooglePopupVisability}>
+          Оставить отзыв
+        </button>
+      ) : null}
     </section>
   );
 }

@@ -16,9 +16,18 @@
 
 .popup-form__location-checkbox:hover {
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 .popup-form__location-checkbox input[type='checkbox'] {
   display: none;
+}
+
+@media (max-width: 515px) {
+  .popup-form__location-checkbox {
+    padding-left: 10px;
+    padding-right: 5px;
+    font-size: 16px;
+    height: 76px;
+  }
 }

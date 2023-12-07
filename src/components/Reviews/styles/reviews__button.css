@@ -12,4 +12,17 @@
   background-color: #a7221f;
   border: none;
   border-radius: 12px;
+  transition: transform 0.2s ease-in-out;
+}
+
+@media (max-width: 650px) {
+  .reviews__button {
+    margin-top: 16px;
+    width: 100%;
+  }
+}
+
+.reviews__button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
 }

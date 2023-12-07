@@ -3,3 +3,12 @@
   flex-direction: column;
   gap: 15px;
 }
+
+@media (max-width: 650px) {
+  .reviews__column {
+    padding-top: 12px;
+    flex-direction: row;
+    overflow-x: scroll;
+    gap: 20px;
+  }
+}

@@ -13,3 +13,10 @@
   border: none;
   border-radius: 12px;
 }
+
+@media (max-width: 650px) {
+  .reviews__button {
+    margin-top: 16px;
+    width: 100%;
+  }
+}

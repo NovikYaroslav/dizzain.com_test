@@ -11,8 +11,9 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 650px) {
   .reviews__list {
     grid-template-columns: 1fr;
+    margin-right: -20px;
   }
 }

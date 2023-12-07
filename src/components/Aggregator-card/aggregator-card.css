@@ -15,9 +15,15 @@
   opacity: 0.8;
 }
 
-@media (max-width: 668px) {
+@media (max-width: 650px) {
   .aggregator-card {
-    max-width: 335px;
+    width: 95%;
+  }
+}
+
+@media (max-width: 500px) {
+  .aggregator-card {
+    width: 90%;
   }
 }
 

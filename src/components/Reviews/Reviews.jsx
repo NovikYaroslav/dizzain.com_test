@@ -45,9 +45,17 @@ export default function Reviews() {
       setReviewsInColumn(3);
       setColumnsAmount(tabletSlices);
     }
-    if (windowWidth < 640) {
+    if (windowWidth < 650) {
       setReviewsInColumn(6);
       setColumnsAmount(mobilSlices);
+    }
+
+    if (windowWidth < 650) {
+      setIsMobileLayout(true);
+    }
+
+    if (windowWidth > 650) {
+      setIsMobileLayout(false);
     }
 
     if (windowWidth > 1040) {
@@ -69,9 +77,11 @@ export default function Reviews() {
             key={el.name}
           />
         ))}
-        <button className='reviews__button' type='button' onClick={tooglePopupVisability}>
-          Оставить отзыв
-        </button>
+        {isMobileLayout ? null : (
+          <button className='reviews__button' type='button' onClick={tooglePopupVisability}>
+            Оставить отзыв
+          </button>
+        )}
       </div>
 
       <div className='reviews__list'>
@@ -90,22 +100,11 @@ export default function Reviews() {
           </div>
         ))}
       </div>
-      {/* <div className='reviews__list'>
-        {[FIRST_SLICE].map((startIndex) => (
-          <div className='reviews__column' key={startIndex}>
-            {randomReviews.slice(startIndex, startIndex + 6).map((el) => (
-              <Review
-                author={el.title}
-                text={el.content}
-                rating={el.review.reviewRate}
-                likes={el.review.reviewLikesCount}
-                id={el.id}
-                key={el.id}
-              />
-            ))}
-          </div>
-        ))}
-      </div> */}
+      {isMobileLayout ? (
+        <button className='reviews__button' type='button' onClick={tooglePopupVisability}>
+          Оставить отзыв
+        </button>
+      ) : null}
     </section>
   );
 }

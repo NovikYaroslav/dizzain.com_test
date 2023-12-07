@@ -1,7 +1,12 @@
 .main {
-  margin: 0 30px 0 30px;
   display: flex;
   justify-content: center;
 }
+
+/* @media (max-width: 650px) {
+  .main {
+    margin: 0 0 0 20px;
+  }
+} */
 
 @import url('../Main/styles/main__setup-button.css');

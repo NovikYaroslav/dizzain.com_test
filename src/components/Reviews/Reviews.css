@@ -1,14 +1,28 @@
 .reviews {
   display: flex;
   flex-direction: column;
-  margin: 100px 0 100px 0;
+  margin: 100px 30px 100px 30px;
   padding: 0;
   max-width: 1200px;
 }
 
-@media (min-width: 900px) {
+@media (max-width: 900px) {
   .reviews {
-    margin: 60px 0 60px 0;
+    margin: 60px 30px 60px 30px;
+  }
+}
+
+@media (max-width: 650px) {
+  .reviews {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .reviews {
+    margin-top: 40px;
+    margin-bottom: 33px;
   }
 }
 

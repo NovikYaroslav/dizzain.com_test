@@ -1,14 +1,19 @@
 .review-control__table-container {
   display: flex;
   width: 100%;
-
   overflow-x: auto;
   transform: rotateX(180deg);
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
 }
 
-@media (max-width: 1024px) {
+/* Решил, что и вертикальный скролл будет уместен. */
+/* Если он не нужен, то убираем это свойство */
+@media (max-width: 950px) {
   .review-control__table-container {
     overflow-y: auto;
-    height: 300px;
+    max-height: 600px;
+    transform: none;
   }
 }

@@ -7,6 +7,12 @@
   transform: rotateX(180deg);
 }
 
+@media (max-width: 950px) {
+  .reviews-table {
+    transform: none;
+  }
+}
+
 @import url('./styles/reviews-table__heading.css');
 @import url('./styles/reviews-table__heading_review.css');
 @import url('./styles/reviews-table__input_review.css');

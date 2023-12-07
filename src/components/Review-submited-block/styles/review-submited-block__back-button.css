@@ -13,9 +13,10 @@
   background-color: #a7221f;
   border: none;
   border-radius: 12px;
+  transition: transform 0.2s ease-in-out;
 }
 
 .review-submited-block__back-button:hover {
   cursor: pointer;
-  opacity: 0.8;
+  transform: scale(1.05);
 }

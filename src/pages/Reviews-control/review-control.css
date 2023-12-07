@@ -1,9 +1,10 @@
 .review-control {
   display: flex;
-  padding-top: 105px;
+  padding: 105px 20px 50px 20px;
   flex-direction: column;
   align-items: flex-start;
 }
 
 @import url('./styles/review-control__form.css');
 @import url('./styles/review-control__return-button.css');
+@import url('./styles/review-control__table-container.css');

@@ -17,7 +17,9 @@ export default function ReviewsControl() {
       <div className='review-control__form'>
         <ReviewForm onMain={false} />
       </div>
-      <ReviewsTable />
+      <div className='review-control__table-container'>
+        <ReviewsTable />
+      </div>
     </section>
   );
 }

@@ -8,11 +8,12 @@
   border-radius: 12px;
   text-decoration: none;
   color: inherit;
+  transition: transform 0.2s ease-in-out;
 }
 
 .aggregator-card:hover {
   cursor: pointer;
-  opacity: 0.8;
+  transform: scale(1.05);
 }
 
 @media (max-width: 650px) {

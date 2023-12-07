@@ -11,3 +11,8 @@
   background-repeat: no-repeat;
   background-size: contain;
 }
+
+.review-control__return-button:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}

@@ -16,7 +16,7 @@
 
 .popup-form__location-checkbox:hover {
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 .popup-form__location-checkbox input[type='checkbox'] {

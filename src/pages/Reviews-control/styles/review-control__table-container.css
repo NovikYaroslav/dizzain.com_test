@@ -1,0 +1,14 @@
+.review-control__table-container {
+  display: flex;
+  width: 100%;
+
+  overflow-x: auto;
+  transform: rotateX(180deg);
+}
+
+@media (max-width: 1024px) {
+  .review-control__table-container {
+    overflow-y: auto;
+    height: 300px;
+  }
+}

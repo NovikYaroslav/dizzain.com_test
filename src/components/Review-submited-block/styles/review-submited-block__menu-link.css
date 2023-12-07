@@ -8,3 +8,8 @@
   font-weight: 400;
   line-height: 28px;
 }
+
+.review-submited-block__menu-link:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}

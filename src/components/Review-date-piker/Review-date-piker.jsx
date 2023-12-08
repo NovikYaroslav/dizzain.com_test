@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import datePikerIcon from '../../img/date-piker.png';
-import { ConfigProvider, DatePicker } from 'antd';
+import { ConfigProvider, DatePicker, Calendar } from 'antd';
 import ruRU from 'antd/es/locale/ru_RU';
 import dayjs from 'dayjs'; // Import dayjs
 import 'dayjs/locale/ru'; // Import the locale for dayjs

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ReviewDatePiker from '../Review-date-piker/Review-date-piker';
 import { useReviews } from '../../context/reviewsContext';
 import { starsCount } from '../../utils/data';
 import upload from '../../img/upload.png';
@@ -85,7 +86,7 @@ export default function ReviewForm({ location, rating, onFormSubmit, onMain }) {
         </label>
         <label className='review-form__input'>
           Когда вы у нас были?
-          <input type='date' value={date} onChange={handleDateChange} required></input>
+          <ReviewDatePiker />
         </label>
       </div>
       {onMain ? null : (

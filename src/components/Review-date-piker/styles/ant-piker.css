@@ -50,6 +50,15 @@
   right: 0;
 }
 
+.ant-picker-year-btn:hover {
+  cursor: default !important;
+}
+
+.ant-picker-month-btn:hover {
+  cursor: default !important;
+  opacity: 1;
+}
+
 .ant-picker-header-next-btn {
   position: absolute !important;
   top: 0;

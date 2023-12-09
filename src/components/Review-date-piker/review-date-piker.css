@@ -5,41 +5,6 @@
   background-color: transparent;
 }
 
-.ant-picker-content thead {
-  border-bottom: 1px solid #f1f1ef;
-}
-
-.ant-picker-cell {
-  padding: 0 !important;
-}
-
-.ant-picker-body {
-  padding: 0 !important;
-}
-
-.ant-picker-date-panel {
-  padding: 10px 16px 10px 16px !important;
-}
-
-.ant-picker-cell-inner {
-  border-radius: 20px !important;
-}
-
-.ant-picker-cell-inner::before {
-  border-radius: 20px !important;
-}
-
-.ant-picker-header {
-  padding: 0 !important;
-}
-
-.ant-picker-header-super-prev-btn {
-  display: none !important;
-}
-
-.ant-picker-header-super-next-btn {
-  display: none !important;
-}
-
 @import url('./styles/review-date-piker__footer.css');
 @import url('./styles/review-date-piker__button.css');
+@import url('./styles/ant-piker.css');

@@ -1,0 +1,70 @@
+/* 1 */
+/* Я понимаю, что перезапись с !important это плохая практика */
+/* Но по другому стили не презаписываются */
+/* Судя по доке можно перезаписывать в рамках CSS in JS, но я с ним не работал вообще*/
+
+/* 2 */
+/* Все эти извращения, потому, что я не могу через пропсы кастомизировать большенство элементов*/
+/* Особенно хэдер пикера + кол-во строк дат*/
+/* можно полностью заменить весь попап+напистаь логику по выбору даты, но тогда зачем ant */
+
+.ant-picker-content thead {
+  border-bottom: 1px solid #f1f1ef;
+  max-height: 32px !important;
+}
+
+.ant-picker-content {
+  overflow: hidden;
+}
+
+.ant-picker-cell {
+  padding: 0 !important;
+}
+
+.ant-picker-body {
+  padding: 0 !important;
+  max-height: 186.5px !important;
+  overflow: hidden;
+}
+
+.ant-picker-date-panel {
+  padding: 10px 14px 10px 14px !important;
+}
+
+.ant-picker-cell-inner {
+  border-radius: 20px !important;
+}
+
+.ant-picker-cell-inner::before {
+  border-radius: 20px !important;
+}
+
+.ant-picker-header {
+  padding: 0 !important;
+  position: relative !important;
+}
+
+.ant-picker-header-prev-btn {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+}
+
+.ant-picker-header-next-btn {
+  position: absolute !important;
+  top: 0;
+  right: 30px;
+}
+
+.ant-picker-header-view {
+  display: flex;
+  justify-content: flex-start !important;
+}
+
+.ant-picker-header-super-prev-btn {
+  display: none !important;
+}
+
+.ant-picker-header-super-next-btn {
+  display: none !important;
+}

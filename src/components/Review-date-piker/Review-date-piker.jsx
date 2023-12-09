@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import datePikerIcon from '../../img/date-piker.png';
-import { ConfigProvider, DatePicker, Calendar } from 'antd';
+import down from '../../img/../img/down-arrow.png';
+import up from '../../img/Up-arrow.png';
+import { ConfigProvider, DatePicker } from 'antd';
 import ruRU from 'antd/es/locale/ru_RU';
-import dayjs from 'dayjs'; // Import dayjs
-import 'dayjs/locale/ru'; // Import the locale for dayjs
+import dayjs from 'dayjs';
+import 'dayjs/locale/ru';
 import './review-date-piker.css';
 
-dayjs.locale('ru');
-
 export default function ReviewDatePiker() {
+  dayjs.locale('ru');
   const [selectedDate, setSelectedDate] = useState();
 
   const handleDateChange = (date) => {
@@ -16,7 +17,8 @@ export default function ReviewDatePiker() {
   };
 
   const handleRelativeDate = (days) => {
-    const newDate = selectedDate.add(days, 'day');
+    const currentDate = dayjs();
+    const newDate = currentDate.add(days, 'day');
     setSelectedDate(newDate);
   };
 
@@ -31,6 +33,7 @@ export default function ReviewDatePiker() {
       theme={{
         components: {
           DatePicker: {
+            activeShadow: '',
             cellRangeBorderColor: '#BAB6B4',
             cellHoverBg: '#A7221F',
             cellWidth: 29,
@@ -38,7 +41,7 @@ export default function ReviewDatePiker() {
           },
         },
         token: {
-          colorPrimary: '#BAB6B4',
+          colorPrimary: '#7E7770',
           borderRadius: 12,
           fontFamily: 'Roboto',
           boxShadowSecondary: '0px 4px 25px 0px rgba(0, 0, 0, 0.50)',
@@ -49,7 +52,10 @@ export default function ReviewDatePiker() {
         allowClear={false}
         format='DD.MM.YYYY'
         className='review-date-piker'
-        popupClassName='review-date-piker'
+        placeholder=''
+        size='large'
+        prevIcon={<img src={down} alt='стрелка вниз' />}
+        nextIcon={<img src={up} alt='стрелка вверх' />}
         suffixIcon={<img src={datePikerIcon} alt='календарь' />}
         showToday={false}
         value={selectedDate}

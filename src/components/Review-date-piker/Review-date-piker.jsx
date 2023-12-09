@@ -5,11 +5,9 @@ import up from '../../img/Up-arrow.png';
 import { ConfigProvider, DatePicker } from 'antd';
 import ruRU from 'antd/es/locale/ru_RU';
 import dayjs from 'dayjs';
-import 'dayjs/locale/ru';
 import './review-date-piker.css';
 
 export default function ReviewDatePiker() {
-  dayjs.locale('ru');
   const [selectedDate, setSelectedDate] = useState();
 
   const handleDateChange = (date) => {

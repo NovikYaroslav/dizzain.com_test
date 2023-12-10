@@ -32,5 +32,6 @@ const restaurantAddresses = [
 ];
 
 const starsCount = [1, 2, 3, 4, 5];
+const tableColumns = ['Имя', 'Email', 'Телефон', 'Дата', 'Рейтинг', 'Отзыв'];
 
-export { aggregatorsData, starsCount, restaurantAddresses };
+export { aggregatorsData, starsCount, restaurantAddresses, tableColumns };

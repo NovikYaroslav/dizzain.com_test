@@ -4,10 +4,9 @@ import Review from '../../components/Review/Review';
 import { aggregatorsData } from '../../utils/data';
 import {
   AMOUNT_ON_PAGE,
-  FIRST_SLICE,
-  SECOND_SLICE,
-  THIRD_SLICE,
-  AMOUNT_IN_COLUMN,
+  FIRST_COLUMN_SLICE,
+  SECOND_COLUMN_SLICE,
+  THIRD_COLUMN_SLICE,
 } from '../../utils/const';
 import { useReviews } from '../../context/reviewsContext';
 import './Reviews.css';
@@ -16,17 +15,12 @@ export default function Reviews() {
   const { reviewsOnMain, tooglePopupVisability, updatedReviewsOnMain } = useReviews();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [reviewsInColumn, setReviewsInColumn] = useState(2);
-  const randomReviews = reviewsOnMain.slice(0, AMOUNT_ON_PAGE);
-  const desktopSlices = [FIRST_SLICE, SECOND_SLICE, THIRD_SLICE];
-  const tabletSlices = [FIRST_SLICE, SECOND_SLICE];
-  const mobilSlices = [FIRST_SLICE];
-  const [columnsAmount, setColumnsAmount] = useState(desktopSlices);
-
-  console.log(columnsAmount);
-  console.log(reviewsInColumn);
-  console.log(windowWidth);
-
   const [isMobileLayout, setIsMobileLayout] = useState(false);
+  const randomReviews = reviewsOnMain.slice(0, AMOUNT_ON_PAGE);
+  const desktopSlices = [FIRST_COLUMN_SLICE, SECOND_COLUMN_SLICE, THIRD_COLUMN_SLICE];
+  const tabletSlices = [FIRST_COLUMN_SLICE, SECOND_COLUMN_SLICE];
+  const mobilSlices = [FIRST_COLUMN_SLICE];
+  const [columnsAmount, setColumnsAmount] = useState(desktopSlices);
 
   useEffect(() => {
     updatedReviewsOnMain();

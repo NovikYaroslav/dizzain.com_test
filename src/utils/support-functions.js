@@ -12,8 +12,8 @@ function shuffleArray(test) {
 }
 
 function formatDate(inputDate) {
-  if (inputDate === 'Отсутствует') {
-    return 'Отсутствует';
+  if (inputDate === 'Отсутствует' || /^\d{2}\.\d{2}\.\d{4}$/.test(inputDate)) {
+    return inputDate;
   } else {
     const date = new Date(inputDate);
     const day = date.getDate();

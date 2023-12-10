@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useReviews } from '../../context/reviewsContext';
 import { formatText } from '../../utils/support-functions';
-import { starsCount } from '../../utils/data';
+import { starsCount, tableColumns } from '../../utils/data';
 import star from '../../img/big-star-active.png';
 import inactiveStar from '../../img/big-star-inactive.png';
 import './reviews-table.css';
@@ -10,6 +10,8 @@ export default function ReviewsTable() {
   const { reviews, removeReview, editReview } = useReviews();
   const [editMode, setEditMode] = useState(null);
   const [editedValues, setEditedValues] = useState({});
+
+  console.log(editedValues);
 
   const handleEditClick = (id, review) => {
     setEditMode(id);
@@ -34,13 +36,15 @@ export default function ReviewsTable() {
     <table className='reviews-table'>
       <thead>
         <tr>
-          <th className='reviews-table__heading'>Имя</th>
-          <th className='reviews-table__heading'>Email</th>
-          <th className='reviews-table__heading'>Телефон</th>
-          <th className='reviews-table__heading'>Дата</th>
-          <th className='reviews-table__heading'>Рейтинг</th>
-          <th className='reviews-table__heading reviews-table__heading_review'>Отзыв</th>
-          <th className='reviews-table__heading'></th>
+          {tableColumns.map((column) => (
+            <th
+              key={column}
+              className={`reviews-table__heading ${
+                column === 'Отзыв' ? 'reviews-table__heading_review' : ''
+              }`}>
+              {column}
+            </th>
+          ))}
           <th className='reviews-table__heading'></th>
         </tr>
       </thead>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import datePikerIcon from '../../img/date-piker.png';
 import down from '../../img/../img/down-arrow.png';
 import up from '../../img/Up-arrow.png';
@@ -8,23 +8,29 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/ru';
 import './review-date-piker.css';
 
-export default function ReviewDatePiker() {
-  dayjs.locale('ru');
+export default function ReviewDatePiker({ onDatePick, formStatus }) {
   const [selectedDate, setSelectedDate] = useState();
+
+  useEffect(() => {
+    setSelectedDate();
+  }, [formStatus]);
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
+    onDatePick(date);
   };
 
   const handleRelativeDate = (days) => {
     const currentDate = dayjs();
     const newDate = currentDate.add(days, 'day');
     setSelectedDate(newDate);
+    onDatePick(newDate);
   };
 
   const handleTodayDate = () => {
     const currentDate = dayjs();
     setSelectedDate(currentDate);
+    onDatePick(currentDate);
   };
 
   return (

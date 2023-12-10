@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
-import initialReviews from './test.json';
+import initialReviews from './initial.json';
 import { shuffleArray, formatDate } from '../utils/support-functions';
 
 const ReviewsContext = createContext();
@@ -9,41 +9,24 @@ const ReviewsProvider = ({ children }) => {
   const [reviewsOnMain, setReviewsOnMain] = useState([]);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  // единственный приличный вариант который я вижу, для сохранения это localStorage.
-  // fr не подходит, т.к. я не в node.js
-  // File System Access API требует взаимодействия с клиентом и не предназначен для подкапотной перезаписи.
-  // Получится должно было что-то такое:
+  // Вот подход сохранения, через диалоговое окно. Работает, сохраняет, перезаписывает.
+  // Без диалогового окна, я возможности перезаписи не вижу.
+  // Если перезаписывать изначальный json, приложение при перезаписи будет перезапускать, видимо из за обновления импорта.
+  // Поэтому, создан initial.json, а создается и перезаписывается test.json
+  async function saveJson(reviews) {
+    try {
+      const reviewsString = JSON.stringify({ reviews });
+      const root = await window.showDirectoryPicker();
+      const fileHandle = await root.getFileHandle('test.json', { create: true });
+      const writable = await fileHandle.createWritable();
+      await writable.write(reviewsString);
+      await writable.close();
 
-  // useEffect(() => {
-  //   saveJson();
-  // }, [reviews]);
-
-  // async function saveJson() {
-  //   const reviewsString = JSON.stringify({ reviews });
-  //   let blob = new Blob([reviewsString], { type: 'text/plain' });
-  //   let fileName = `test`;
-  //   let a = await window.showSaveFilePicker({
-  //     suggestedName: `${fileName}.json`,
-  //     types: [
-  //       {
-  //         description: 'test.json',
-  //         accept: {
-  //           'text/plain': ['.json'],
-  //         },
-  //       },
-  //     ],
-  //   });
-  //   let b = await a.createWritable();
-  //   let c = await b.write(blob);
-  //   let d = await b.close();
-  // }
-
-  // возможно есть способы работы с файлом через public или средствами для перезаписи файлов библиотек, но это какая-то черная магия.
-
-  useEffect(() => {
-    const reviewsString = JSON.stringify({ reviews });
-    localStorage.setItem('test.json', reviewsString);
-  }, [reviews]);
+      console.log('Файл сохранен!');
+    } catch (error) {
+      console.error('Ошибка:', error);
+    }
+  }
 
   const updatedReviewsOnMain = () => {
     setReviewsOnMain(shuffleArray(reviews));
@@ -54,10 +37,10 @@ const ReviewsProvider = ({ children }) => {
       review.id === id ? { ...review, reviewLikesCount: review.reviewLikesCount + 1 } : review,
     );
     setReviews(updatedReviews);
+    saveJson(updatedReviews);
   };
 
   const addReview = (location, rating, name, email, phone, date, review, files) => {
-    console.log(rating);
     const newReview = {
       id: String(reviews.length + 1),
       location: location,
@@ -77,11 +60,13 @@ const ReviewsProvider = ({ children }) => {
     };
     const updatedReviews = [...reviews, newReview];
     setReviews(updatedReviews);
+    saveJson(updatedReviews);
   };
 
   const removeReview = (id) => {
     const updatedReviews = reviews.filter((review) => review.id !== id);
     setReviews(updatedReviews);
+    saveJson(updatedReviews);
   };
 
   const editReview = ({
@@ -108,6 +93,7 @@ const ReviewsProvider = ({ children }) => {
         : review,
     );
     setReviews(updatedReviews);
+    saveJson(updatedReviews);
   };
 
   const tooglePopupVisability = () => {

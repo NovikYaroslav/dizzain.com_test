@@ -16,11 +16,12 @@ export default function ReviewForm({ location, rating, onFormSubmit, onMain }) {
   const [review, setReview] = useState('');
   const [files, setFiles] = useState([]);
   const [selectedStars, setSelectedStars] = useState(0);
+  const [formSubmited, setFromSubmited] = useState(false);
 
   const handleNameChange = (e) => setName(e.target.value);
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePhoneChange = (e) => setPhone(e.target.value);
-  const handleDateChange = (e) => setDate(e.target.value);
+  const handleDateChange = (dateData) => setDate(dateData.$d);
   const handleReviewChange = (e) => setReview(e.target.value);
   const handleStarCheckboxChange = (star) => {
     setSelectedStars(star);
@@ -56,6 +57,7 @@ export default function ReviewForm({ location, rating, onFormSubmit, onMain }) {
     } else {
       addReview('', selectedStars, name, email, phone, date, review, []);
       clearStates();
+      setFromSubmited(!formSubmited);
     }
   };
 
@@ -74,11 +76,7 @@ export default function ReviewForm({ location, rating, onFormSubmit, onMain }) {
         </label>
         <label className='review-form__input'>
           Email
-          <input
-            type='email'
-            value={email}
-            onChange={handleEmailChange}
-            pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$'></input>
+          <input type='email' value={email} onChange={handleEmailChange}></input>
         </label>
         <label className='review-form__input'>
           Телефон
@@ -86,7 +84,7 @@ export default function ReviewForm({ location, rating, onFormSubmit, onMain }) {
         </label>
         <label className='review-form__input'>
           Когда вы у нас были?
-          <ReviewDatePiker />
+          <ReviewDatePiker onDatePick={handleDateChange} formStatus={formSubmited} />
         </label>
       </div>
       {onMain ? null : (

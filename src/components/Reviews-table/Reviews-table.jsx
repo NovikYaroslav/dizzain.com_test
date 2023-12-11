@@ -11,8 +11,6 @@ export default function ReviewsTable() {
   const [editMode, setEditMode] = useState(null);
   const [editedValues, setEditedValues] = useState({});
 
-  console.log(editedValues);
-
   const handleEditClick = (id, review) => {
     setEditMode(id);
     setEditedValues({

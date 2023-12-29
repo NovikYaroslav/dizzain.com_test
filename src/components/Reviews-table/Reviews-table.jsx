@@ -16,9 +16,9 @@ export default function ReviewsTable() {
     setEditedValues({
       editedId: review.id,
       editedTitle: review.title,
-      editedEmail: review.email || 'Отсутствует',
-      editedPhone: review.phone || 'Отсутствует',
-      editedDate: review.date || 'Отсутствует',
+      editedEmail: review.email || 'N/A',
+      editedPhone: review.phone || 'N/A',
+      editedDate: review.date || 'N/A',
       editedReviewRate: review.review.reviewRate,
       editedContent: review.content,
     });
@@ -38,7 +38,7 @@ export default function ReviewsTable() {
             <th
               key={column}
               className={`reviews-table__heading ${
-                column === 'Отзыв' ? 'reviews-table__heading_review' : ''
+                column === 'Review' ? 'reviews-table__heading_review' : ''
               }`}>
               {column}
             </th>
@@ -74,7 +74,7 @@ export default function ReviewsTable() {
                   }
                 />
               ) : (
-                review.email || 'Отсутствует'
+                review.email || 'N/A'
               )}
             </td>
             <td className='reviews-table__body'>
@@ -88,7 +88,7 @@ export default function ReviewsTable() {
                   }
                 />
               ) : (
-                review.phone || 'Отсутствует'
+                review.phone || 'N/A'
               )}
             </td>
             <td className='reviews-table__body reviews-table__body_edit'>
@@ -99,7 +99,7 @@ export default function ReviewsTable() {
                   onChange={(e) => setEditedValues({ ...editedValues, editedDate: e.target.value })}
                 />
               ) : (
-                review.date || 'Отсутствует'
+                review.date || 'N/A'
               )}
             </td>
             <td className='reviews-table__body'>
@@ -119,7 +119,7 @@ export default function ReviewsTable() {
                   <img
                     className='review-table__stars'
                     src={starNumber <= review.review.reviewRate ? star : inactiveStar}
-                    alt='звездочка рейтинга'
+                    alt='rating star'
                     key={starNumber}
                   />
                 ))
@@ -142,13 +142,13 @@ export default function ReviewsTable() {
             <td className='reviews-table__body'>
               {editMode === review.id ? (
                 <button className='reviews-table__buttons' onClick={handleConfirmEditClick}>
-                  Подтвердить
+                  Confirm
                 </button>
               ) : (
                 <button
                   className='reviews-table__buttons'
                   onClick={() => handleEditClick(review.id, review)}>
-                  Редактировать
+                  Edit
                 </button>
               )}
             </td>
@@ -157,7 +157,7 @@ export default function ReviewsTable() {
                 className='reviews-table__buttons'
                 type='button'
                 onClick={() => removeReview(review.id)}>
-                Удалить
+                Delete
               </button>
             </td>
           </tr>

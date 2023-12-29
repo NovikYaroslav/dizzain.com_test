@@ -13,9 +13,6 @@ export default function PopupForm() {
   const [selectedStars, setSelectedStars] = useState(0);
   const [popupSubmited, setPopupSubmited] = useState(false);
 
-  // Логика, чтобы при каждом открытии попапа форма обнулялась.
-  // Если эффект убрать, то форма будет открываться с данными заполненными при закрытии.
-  // Смотря что нужно.
   useEffect(() => {
     if (isPopupOpen) {
       setSelectedLocation('');
@@ -53,7 +50,7 @@ export default function PopupForm() {
           <ReviewSubmitedBlock />
         ) : (
           <>
-            <h3 className='popup-form__header-location'>В каком ресторане вы были?</h3>
+            <h3 className='popup-form__header-location'>Which restaurant were you at?</h3>
             <div className='popup-form__locations-container'>
               {restaurantAddresses.map((address) => (
                 <label
@@ -74,7 +71,7 @@ export default function PopupForm() {
             </div>
             {selectedLocation ? (
               <>
-                <h3 className='popup-form__header-rating'>Ваша оценка</h3>
+                <h3 className='popup-form__header-rating'>Your rating</h3>
                 <div className='popup-form__rating-container'>
                   {starsCount.map((star) => (
                     <label

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext, useContext } from 'react';
+import { useState, useEffect, createContext, useContext } from 'react';
 import initialReviews from './initial.json';
 import { shuffleArray, formatDate } from '../utils/support-functions';
 
@@ -9,25 +9,6 @@ const ReviewsProvider = ({ children }) => {
   const [reviewsOnMain, setReviewsOnMain] = useState([]);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  // Вот подход сохранения, через диалоговое окно. Работает, сохраняет, перезаписывает.
-  // Без диалогового окна, я возможности перезаписи не вижу.
-  // Если перезаписывать изначальный json, приложение при перезаписи будет перезапускать, видимо из за обновления импорта.
-  // Поэтому, создан initial.json, а создается и перезаписывается test.json
-  async function saveJson(reviews) {
-    try {
-      const reviewsString = JSON.stringify({ reviews });
-      const root = await window.showDirectoryPicker();
-      const fileHandle = await root.getFileHandle('test.json', { create: true });
-      const writable = await fileHandle.createWritable();
-      await writable.write(reviewsString);
-      await writable.close();
-
-      console.log('Файл сохранен!');
-    } catch (error) {
-      console.error('Ошибка:', error);
-    }
-  }
-
   const updatedReviewsOnMain = () => {
     setReviewsOnMain(shuffleArray(reviews));
   };
@@ -37,7 +18,6 @@ const ReviewsProvider = ({ children }) => {
       review.id === id ? { ...review, reviewLikesCount: review.reviewLikesCount + 1 } : review,
     );
     setReviews(updatedReviews);
-    saveJson(updatedReviews);
   };
 
   const addReview = (location, rating, name, email, phone, date, review, files) => {
@@ -60,13 +40,11 @@ const ReviewsProvider = ({ children }) => {
     };
     const updatedReviews = [...reviews, newReview];
     setReviews(updatedReviews);
-    saveJson(updatedReviews);
   };
 
   const removeReview = (id) => {
     const updatedReviews = reviews.filter((review) => review.id !== id);
     setReviews(updatedReviews);
-    saveJson(updatedReviews);
   };
 
   const editReview = ({
@@ -78,7 +56,6 @@ const ReviewsProvider = ({ children }) => {
     editedReviewRate,
     editedContent,
   }) => {
-    console.log(editedDate);
     const updatedReviews = reviews.map((review) =>
       review.id === editedId
         ? {
@@ -93,7 +70,6 @@ const ReviewsProvider = ({ children }) => {
         : review,
     );
     setReviews(updatedReviews);
-    saveJson(updatedReviews);
   };
 
   const tooglePopupVisability = () => {
@@ -126,9 +102,9 @@ const ReviewsProvider = ({ children }) => {
 const useReviews = () => {
   const context = useContext(ReviewsContext);
   if (!context) {
-    throw new Error('useReviews должен быть использован в компоненте, обернутом в ReviewsProvider');
+    throw new Error('useReviews should be used in a component wrapped in ReviewsProvider');
   }
   return context;
 };
 
-export { ReviewsProvider, useReviews };
+export { ReviewsProvider, useReviews, ReviewsContext };

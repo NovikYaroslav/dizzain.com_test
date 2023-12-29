@@ -60,7 +60,7 @@ export default function Reviews() {
 
   return (
     <section className='reviews'>
-      <h1 className='reviews__title'>Отзывы</h1>
+      <h1 className='reviews__title'>Reviews</h1>
       <div className='reviews__bar'>
         {aggregatorsData.map((el) => (
           <AggregatorCard
@@ -73,7 +73,7 @@ export default function Reviews() {
         ))}
         {isMobileLayout ? null : (
           <button className='reviews__button' type='button' onClick={tooglePopupVisability}>
-            Оставить отзыв
+            Leave a review
           </button>
         )}
       </div>
@@ -96,7 +96,7 @@ export default function Reviews() {
       </div>
       {isMobileLayout ? (
         <button className='reviews__button' type='button' onClick={tooglePopupVisability}>
-          Оставить отзыв
+          Leave a review
         </button>
       ) : null}
     </section>

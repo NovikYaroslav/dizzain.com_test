@@ -3,9 +3,7 @@ import datePikerIcon from '../../img/date-piker.png';
 import down from '../../img/../img/down-arrow.png';
 import up from '../../img/Up-arrow.png';
 import { ConfigProvider, DatePicker } from 'antd';
-import ruRU from 'antd/es/locale/ru_RU';
 import dayjs from 'dayjs';
-import 'dayjs/locale/ru';
 import './review-date-piker.css';
 
 export default function ReviewDatePiker({ onDatePick, formStatus }) {
@@ -35,7 +33,6 @@ export default function ReviewDatePiker({ onDatePick, formStatus }) {
 
   return (
     <ConfigProvider
-      locale={ruRU}
       theme={{
         components: {
           DatePicker: {
@@ -69,13 +66,13 @@ export default function ReviewDatePiker({ onDatePick, formStatus }) {
         renderExtraFooter={() => (
           <div className='review-date-piker__footer'>
             <button onClick={() => handleRelativeDate(-2)} className='review-date-piker__button'>
-              Позавчера
+              Day before yesterday
             </button>
             <button onClick={() => handleRelativeDate(-1)} className='review-date-piker__button'>
-              Вчера
+              Yesterday
             </button>
             <button onClick={() => handleTodayDate()} className='review-date-piker__button'>
-              Сегодня
+              Today
             </button>
           </div>
         )}

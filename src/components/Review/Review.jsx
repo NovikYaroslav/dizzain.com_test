@@ -37,7 +37,7 @@ export default function Review({ author, text, rating, likes, id }) {
       <button className='review__likes' type='button' onClick={handleLikeClick}>
         <img className='review__like' alt='' src={liked ? activeLike : inactiveLike} />
         {likeCount < 1 ? (
-          <p className='review__like-label'>Нравится</p>
+          <p className='review__like-label'>Like</p>
         ) : (
           <p className={`review__likes-amount ${!liked ? 'review__likes-amount_active' : ''}`}>
             {likeCount}

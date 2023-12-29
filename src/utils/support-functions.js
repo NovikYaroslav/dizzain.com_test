@@ -12,7 +12,7 @@ function shuffleArray(test) {
 }
 
 function formatDate(inputDate) {
-  if (inputDate === 'Отсутствует' || /^\d{2}\.\d{2}\.\d{4}$/.test(inputDate)) {
+  if (inputDate === 'N/A' || /^\d{2}\.\d{2}\.\d{4}$/.test(inputDate)) {
     return inputDate;
   } else {
     const date = new Date(inputDate);

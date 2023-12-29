@@ -5,7 +5,7 @@ import { starsCount } from '../../utils/data';
 import upload from '../../img/upload.png';
 import './review-form.css';
 
-// Валидация намеренно, самая простоя.
+// Most simple valdation
 
 export default function ReviewForm({ location, rating, onFormSubmit, onMain }) {
   const { addReview } = useReviews();
@@ -65,13 +65,13 @@ export default function ReviewForm({ location, rating, onFormSubmit, onMain }) {
     <form className='review-form' onSubmit={handleSubmit}>
       {onMain ? (
         <h3 className='review-form__header'>
-          Что-то было не так? Расскажите об этом здесь, чтобы мы могли отследить и решить возможные
-          проблемы{' '}
+          Was something not right? Tell us here so that we can track and address any potential
+          issues.{' '}
         </h3>
       ) : null}
       <div className='review-form__data-container'>
         <label className='review-form__input'>
-          Имя
+          Name
           <input type='text' value={name} onChange={handleNameChange} required></input>
         </label>
         <label className='review-form__input'>
@@ -79,11 +79,11 @@ export default function ReviewForm({ location, rating, onFormSubmit, onMain }) {
           <input type='email' value={email} onChange={handleEmailChange}></input>
         </label>
         <label className='review-form__input'>
-          Телефон
+          Phone number
           <input type='text' value={phone} onChange={handlePhoneChange} required></input>
         </label>
         <label className='review-form__input'>
-          Когда вы у нас были?
+          When were you with us?
           <ReviewDatePiker onDatePick={handleDateChange} formStatus={formSubmited} />
         </label>
       </div>
@@ -106,7 +106,7 @@ export default function ReviewForm({ location, rating, onFormSubmit, onMain }) {
         </div>
       )}
       <label className='review-form__input'>
-        Отзыв
+        Review
         <textarea type='text-area' value={review} onChange={handleReviewChange} required></textarea>
       </label>
       {onMain ? (
@@ -119,14 +119,14 @@ export default function ReviewForm({ location, rating, onFormSubmit, onMain }) {
               ))}
             </ul>
           ) : (
-            'Загрузите фотографии'
+            'Upload photo'
           )}
           <input type='file' onChange={handleFileChange} multiple accept='.jpg, .jpeg, .png' />
         </label>
       ) : null}
 
       <button className='review-form__submit' type='submit'>
-        {onMain ? 'Отправить' : 'Сохранить'}
+        {onMain ? 'Send' : 'Save'}
       </button>
     </form>
   );

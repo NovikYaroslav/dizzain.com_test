@@ -27,11 +27,11 @@ const aggregatorsData = [
 ];
 
 const restaurantAddresses = [
-  'Хинкальня на ул. Урицкого, 5',
-  'Хинкальня на ул. Я.Купалы, 87 (ТРК Тринити)',
+  'Hinkalnaya at 5 Uritskogo Street.',
+  'Hinkalnaya at 87 Y. Kupala Street (Trinity Shopping Mall).',
 ];
 
 const starsCount = [1, 2, 3, 4, 5];
-const tableColumns = ['Имя', 'Email', 'Телефон', 'Дата', 'Рейтинг', 'Отзыв'];
+const tableColumns = ['Name', 'Email', 'Phone', 'Date', 'Rating', 'Review'];
 
 export { aggregatorsData, starsCount, restaurantAddresses, tableColumns };

@@ -1,3 +1,5 @@
+Deploy: https://dizzain-com-test.vercel.app/
+
 Test Task
 👋
 The task consists of two parts:

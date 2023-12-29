@@ -11,15 +11,15 @@ initial.json
 
 Some reviews:
 
-1 - Reviews are located in the file initial.json
-2 - Create a store from initial.json using createContext
-3 - Display 6 random reviews
-4 - Display only reviews where reviewIsShowAtHomePage = true
-5 - Number of likes - reviewLikesCount
-6 - Rating - reviewRate
-7 - When the like button is pressed, the value should increase by 1 and be saved in Context + when saving the store.
-8 - Responsive design as shown in the above layout
-9 - When the "Leave a review" button is pressed, a pop-up window should appear:
+- Reviews are located in the file initial.json
+- Create a store from initial.json using createContext
+- Display 6 random reviews
+- Display only reviews where reviewIsShowAtHomePage = true
+- Number of likes - reviewLikesCount
+- Rating - reviewRate
+- When the like button is pressed, the value should increase by 1 and be saved in Context + when saving the store.
+- Responsive design as shown in the above layout
+- When the "Leave a review" button is pressed, a pop-up window should appear:
 
 https://www.figma.com/file/rO3SaJO2HwBFhK7c5zpFYl/955_hinkalnyagrodno_test?type=design&node-id=1%3A2&mode=design&t=fhZD0o6vSh3jQK1D-1
 
@@ -42,7 +42,7 @@ https://www.figma.com/file/rO3SaJO2HwBFhK7c5zpFYl/955_hinkalnyagrodno_test?type=
 
 Create a page with a form for adding reviews to the store, below which display a list of reviews:
 
-1 - Data in this list can be modified or deleted
-2 - When the form is filled out, this review should appear on the homepage
-3 - Responsive design as you see fit
-4 - The appearance of the edit review form is at your discretion.
+- Data in this list can be modified or deleted
+- When the form is filled out, this review should appear on the homepage
+- Responsive design as you see fit
+- The appearance of the edit review form is at your discretion.
